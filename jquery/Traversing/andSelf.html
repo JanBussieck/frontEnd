@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+p, div { margin:5px; padding:5px; }
+.border { border: 2px solid red; }
+.background { background:yellow; }
+.left, .right { width: 45%; float: left;}
+.right { margin-left:3%; }
+    </style>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+ 
+<div class="left">
+  <p><strong>Before <code>andSelf()</code></strong></p>
+  <div class="before-andself">
+    <p>First Paragraph</p>
+    <p>Second Paragraph</p>
+  </div>
+</div>
+<div class="right">
+  <p><strong>After <code>andSelf()</code></strong></p>
+  <div class="after-andself">
+    <p>First Paragraph</p>
+    <p>Second Paragraph</p>
+  </div>
+</div>
+ 
+<script>
+$("div.left, div.right").find("div, div > p").addClass("border");
+ 
+// First Example
+$("div.before-andself").find("p").addClass("background");
+ 
+// Second Example
+$("div.after-andself").find("p").andSelf().addClass("background");
+</script>
+ 
+</body>
+</html>
+<!-- .andSelf()方法导致以前遍历堆栈中的DOM元素被添加到当前组。  在第一个例子中，堆栈包含组的结果来自.find("p")。 在第二个例子中，.andSelf()将之前组的元素添加到堆栈中 - 在这种情况下（$("div.after-andSelf") - 到当前集合， 选择了两个div和其封闭的段落。 -->

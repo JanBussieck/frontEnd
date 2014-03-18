@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+ 
+<button> 0 </button>
+<button> 1 </button>
+<button> 2 </button>
+<button> 3 </button>
+<button> 4 </button>
+ 
+<div id="log"></div>
+ 
+<script>
+var logDiv = $("#log");
+ 
+ for (var i = 0; i < 5; i++) {
+ 	$("button").eq(1).on("click", {value: i}, function(event){
+ 		var msgsi = [
+ 			"button = " + $(this).index(),
+ 			"event.data.value = "+event.data.value,
+ 			"i =" + 
+ 		];
+ 		logDiv.append(msgs.join(",")+"<br>");
+ 	});
+ }
+</script>
+ 
+</body>
+</html>
+

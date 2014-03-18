@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  body { font-size:16px; }
+  ul { float:left; margin:0 30px; color:blue; }
+  #results { color:red; }
+  </style>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+  <ul>
+    <li>First</li>
+    <li>Second</li>
+    <li>Third</li>
+ 
+    <li>Fourth</li>
+    <li>Fifth</li>
+  </ul>
+  <ul id="results">
+ 
+  </ul>
+<script>
+var mappedItems = $("li").map(function (index) {
+  var replacement = $("<li>").text($(this).text()).get(0);
+  if (index == 0) {
+    /* make the first item all caps */
+    $(replacement).text($(replacement).text().toUpperCase());
+  } else if (index == 1 || index == 3) {
+    /* delete the second and fourth items */
+    replacement = null;
+  } else if (index == 2) {
+    /* make two of the third item and add some text */
+    replacement = [replacement,$("<li>").get(0)];
+    $(replacement[0]).append("<b> - A</b>");
+    $(replacement[1]).append("Extra <b> - B</b>");
+  }
+ 
+  /* replacement will be a dom element, null,
+     or an array of dom elements */
+  return replacement;
+});
+$("#results").append(mappedItems);
+ 
+
+ var arr = [ "a", "b", "c", "d", "e" ];
+    $("div").text(arr.join(", "));
+ 
+    arr = jQuery.map(arr, function(n, i){
+      return (n.toUpperCase() + i);
+    });
+    $("p").text(arr.join(", "));
+ 
+    arr = jQuery.map(arr, function (a) {
+      return a + a;
+    });
+    $("span").text(arr.join(", "));
+    
+</script>
+ 
+</body>
+</html>

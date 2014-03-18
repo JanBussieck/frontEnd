@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  div { color:blue; }
+  span { color:red; }
+  b { font-weight:bolder; }
+        </style>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+ 
+  <div>Zero-th <span></span></div>
+  <div>First <span></span></div>
+  <div>Second <span></span></div>
+ 
+<script>
+$("div").attr("id", function (index) {
+  return "div-id" + index;
+}).each(function () {
+  $("span", this).html("(ID = '<b>" + this.id + "</b>')");
+});
+</script>
+ 
+</body>
+</html>
+
+<!-- 
+1: $('#greatphoto').attr('alt', 'Beijing Brush Seller');
+2: 
+$('#greatphoto').attr({
+  alt: 'Beijing Brush Seller',
+  title: 'photo by Kelly Clark'
+});
+3:
+$('#greatphoto').attr('title', function(i, val) {
+  return val + ' - photo by Kelly Clark'
+});
+ -->

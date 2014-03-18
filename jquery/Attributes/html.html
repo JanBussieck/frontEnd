@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  div { color:blue; font-size:18px; }
+  </style>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+
+   <p>
+    <b>Click</b> to change the <span id="tag">html</span>
+  </p>
+  <p>
+    to a <span id="text">text</span> node.
+  </p>
+  <p>
+    This <button name="nada">button</button> does nothing.
+  </p>
+
+
+  <div></div>
+  <div></div>
+  <div></div>
+<script>
+    $("p").click(function () {
+      var htmlStr = $(this).html();
+      $(this).text(htmlStr);
+    });
+    $("div").html("<b>Wow!</b> Such excitement...");
+    $("div b").append(document.createTextNode("!!!"))
+              .css("color", "red");
+</script>
+ 
+</body>
+</html>

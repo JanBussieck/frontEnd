@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+  
+  <iframe src="http://api.jquery.com/" width="80%" height="600" id='frameDemo'></iframe> 
+
+<script>
+$("#frameDemo").contents().find("a").css("background-color","#BADA55");
+$("p").contents().filter(function(){ return this.nodeType != 1; }).wrap("<b/>");
+</script>
+ 
+</body>
+</html>

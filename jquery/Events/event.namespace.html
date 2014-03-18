@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+ 
+<button>display event.namespace</button>
+<p></p>
+ 
+<script>
+	
+	$('p').bind("test.something", function(event){
+		alert(event.namespace);
+	});
+	$('button').click(function(event) {
+		$("p").trigger('test.something');
+	});
+</script>
+ 
+</body>
+</html>

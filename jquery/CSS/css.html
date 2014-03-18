@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  div { width: 20px; height: 15px; background-color: #f33; }
+  p { color:blue; font-weight:bold; cursor:pointer; }
+  </style>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+  
+  <p>Move the mouse over a paragraph.</p>
+  <p>Like this one or the one above.</p>
+
+  <p>
+  Once upon a time there was a man
+  who lived in a pizza parlor. This
+  man just loved pizza and ate it all
+  the time.  He went on to be the
+  happiest man in the world.  The end.
+</p>
+
+  <div>click</div>
+  <div>click</div>
+
+   <div id="box">Click me to grow</div>
+ 
+<script>
+  $("div").click(function() {
+    $(this).css({
+      width: function(index, value) {
+        return parseFloat(value) * 1.2;
+      },
+      height: function(index, value) {
+        return parseFloat(value) * 1.2;
+      }
+ 
+    });
+  });
+
+  $("p").hover(function () {
+    $(this).css({'background-color' : 'yellow', 'font-weight' : 'bolder'});
+  }, function () {
+    var cssObj = {
+      'background-color' : '#ddd',
+      'font-weight' : '',
+      'color' : 'rgb(0,40,244)'
+    };
+    $(this).css(cssObj);
+  });
+
+  var words = $("p:first").text().split(" ");
+  var text = words.join("</span> <span>");
+  $("p:first").html("<span>" + text + "</span>");
+  $("span").click(function () {
+    $(this).css("background-color","yellow");
+  });
+
+  $("#box").one( "click", function () {
+    $( this ).css( "width","+=200" );
+  });
+</script>
+ 
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>div { margin:3px; width:40px; height:40px;
+        position:absolute; left:0px; top:30px;
+        background:green; display:none; }
+  div.newcolor { background:blue; }
+  span { color:red; }  </style>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+  Click here...
+    <button id="start">Start</button>
+  <button id="stop">Stop</button>
+  <div></div>
+  <button id="show">Show Length of Queue</button>
+  <span></span>
+ 
+<script>
+  $("#show").click(function () {
+    var n = jQuery.queue( $("div")[0], "fx" );
+    $("span").text("Queue length is: " + n.length);
+  });
+  function runIt() {
+    $("div").show("slow");
+    $("div").animate({left:'+=200'},2000);
+    $("div").slideToggle(1000);
+    $("div").slideToggle("fast");
+    $("div").animate({left:'-=200'},1500);
+    $("div").hide("slow");
+    $("div").show(1200);
+    $("div").slideUp("normal", runIt);
+  }
+  runIt();
+
+  $("#start").click(function () {
+      $("div").show("slow");
+      $("div").animate({left:'+=200'},5000);
+      jQuery.queue( $("div")[0], "fx", function () {
+        $(this).addClass("newcolor");
+        jQuery.dequeue( this );
+      });
+      $("div").animate({left:'-=200'},1500);
+      jQuery.queue( $("div")[0], "fx", function () {
+        $(this).removeClass("newcolor");
+        jQuery.dequeue( this );
+      });
+      $("div").slideUp();
+    });
+    $("#stop").click(function () {
+      jQuery.queue( $("div")[0], "fx", [] );
+      $("div").stop();
+    });
+
+  $(document.body).click(function () {
+    $("div").show("slow");
+    $("div").animate({left:'+=200'},2000);
+    jQuery.queue( $("div")[0], "fx", function () {
+      $(this).addClass("newcolor");
+      jQuery.dequeue( this );
+    });
+    $("div").animate({left:'-=200'},500);
+    jQuery.queue( $("div")[0], "fx", function () {
+      $(this).removeClass("newcolor");
+      jQuery.dequeue( this );
+    });
+    $("div").slideUp();
+  });
+  </script>
+ 
+</body>
+</html>

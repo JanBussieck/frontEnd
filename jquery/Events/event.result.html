@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+ 
+<button>display event.result</button>
+<p></p>
+ 
+<script>
+$("button").click(function(event) {
+  return "hey";
+});
+$("button").click(function(event) {
+  $("p").html( event.result );
+});
+</script>
+ 
+</body>
+</html>

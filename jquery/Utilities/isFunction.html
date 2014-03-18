@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  div { color:blue; margin:2px; font-size:14px; }
+  span { color:red; }
+  </style>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+ 
+  <div>jQuery.isFunction(objs[0]) = <span></span></div>
+ 
+  <div>jQuery.isFunction(objs[1]) = <span></span></div>
+  <div>jQuery.isFunction(objs[2]) = <span></span></div>
+  <div>jQuery.isFunction(objs[3]) = <span></span></div>
+ 
+  <div>jQuery.isFunction(objs[4]) = <span></span></div>
+ 
+<script>
+function stub() {
+}
+var objs = [
+      function () {},
+      { x:15, y:20 },
+      null,
+      stub,
+      "function"
+    ];
+ 
+jQuery.each(objs, function (i) {
+  var isFunc = jQuery.isFunction(objs[i]);
+  $("span").eq(i).text(isFunc);
+});
+</script>
+ 
+</body>
+</html>

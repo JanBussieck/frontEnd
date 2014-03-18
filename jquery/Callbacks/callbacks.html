@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="./add.js"></script>
+  <script src="./disable.js"></script>
+  <script src="./disabled.js"></script>
+  <script src="./empty.js"></script>
+  <script src="./fireWith.js"></script>
+  <script src="./fire.js"></script>
+  <script src="./fired.js"></script>
+  <script src="./has.js"></script>
+  <script src="./lock.js"></script>
+  <script src="./locked.js"></script>
+  <script src="./remove.js"></script>
+  <script src="./Callbacks.js"></script>
+</head>
+<body>
+  <div id="log"></div>
+
+<script>
+	var log = function( value) {
+	  $( "#log" ).append( "<p>" + value + "</p>" );
+	};
+	 
+	var foo = function( value ) {
+	  log( "foo: " + value );
+	};
+	var bar = function( value ) {
+	  log( "bar: " + value );
+	};
+	 
+	var callbacks = $.Callbacks( "memory" );
+	callbacks.add( foo );	 
+	callbacks.fire( "hello" );
+	callbacks.lock();
+	callbacks.fire( "world" );
+	callbacks.add( foo );
+	callbacks.fire( "silentArgument" );
+	callbacks.add( bar );	 
+	callbacks.fire( "youHadMeAtHello" );
+
+</script>
+ 
+</body>
+</html>

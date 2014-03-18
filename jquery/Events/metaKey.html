@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>body {background-color: #eef; }
+    div { padding: 20px; }</style>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+ 
+<button value="Test" name="Test" id="checkMetaKey">Click me!</button>
+<div id="display"></div>
+<script>
+$('#checkMetaKey').click(function(e){
+  $('#display').text(e.metaKey);
+});
+</script>
+ 
+</body>
+</html>

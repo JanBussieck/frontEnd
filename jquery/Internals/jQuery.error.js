@@ -1,0 +1,1 @@
+jQuery.error = console.error;

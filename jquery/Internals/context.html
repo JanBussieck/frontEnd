@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  body { cursor:pointer; }
+  div { width:50px; height:30px; margin:5px; float:left;
+        background:green; }
+  span { color:red; }
+  </style>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+  Context:<ul></ul>
+<script>
+$("ul")
+  .append('<li>'+$('ul').context+"</li>")
+  .append('<li>'+$('ul',document.body).context.nodeName+"</li>");
+</script>
+ 
+</body>
+</html>

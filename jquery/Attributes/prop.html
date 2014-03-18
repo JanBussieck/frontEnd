@@ -1,0 +1,44 @@
+<!-- 
+1.添加属性名称该属性就会生效应该使用prop();
+2.具有 true 和 false 两个属性的属性，如 checked, selected 或者 disabled 使用prop()
+3.其他则使用attr();
+ -->
+
+ <!DOCTYPE html>
+<html>
+<head>
+  <style>
+  p { margin: 20px 0 0 }
+  b { color: blue; }
+</style>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+ 
+<input id="check1" type="checkbox" checked="checked">
+<label for="check1">Check me</label>
+<p></p>
+ 
+ <input type="checkbox" class="test"checked="checked" />
+  <input type="checkbox" class="test"/>
+  <input type="checkbox" class="test"/>
+  <input type="checkbox" class="test" checked="checked" />
+ 
+
+<script>
+
+$("input").change(function() {
+  var $input = $(this);
+  $("p").html(".attr('checked'): <b>" + $input.attr('checked') + "</b><br>"
+              + ".prop('checked'): <b>" + $input.prop('checked') + "</b><br>"
+              + ".is(':checked'): <b>" + $input.is(':checked') ) + "</b>";
+}).change();
+
+$("input[type='checkbox'].test").prop({
+  disabled: true
+});
+
+</script>
+ 
+</body>
+</html>
