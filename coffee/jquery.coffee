@@ -1,12 +1,15 @@
-# Use local alias
-$ = jQuery
-$ ->
-# DOMContentLoaded
-$(".el").click ->
-alert("Clicked!")
+$(document).ready ->
+	newGame()
+	$('#grid li').live 'click', titleClick
 
+titleClick = ->
+	$tile = $(this)
+	if $tile.hasClass 'selected'
+		selectedCoordinates = null
+		$tile.removeClass 'selected'
+		showMessage 'firstTile'
+	else 
+		$tile.addClass 'selected'
+		[x, y] = @id.match(/(\d+)_(\d+)/)[1..]
+		selectTile x,y
 
-type = do ->classToType = {}
-for name in "Boolean Number String Function Array Date RegExp Undefined Null".split(" ")
-   classToType["[object " + name + "]"] = name.toLowerCase()
-(obj) -> strType = Object::toString.call(obj)
