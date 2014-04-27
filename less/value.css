@@ -1,0 +1,144 @@
+#header {
+  color: #4d926f;
+}
+h2 {
+  color: #4d926f;
+}
+#header {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+#footer {
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+#header h1 {
+  font-size: 26px;
+  font-weight: bold;
+}
+#header p {
+  font-size: 12px;
+}
+#header p a {
+  text-decoration: none;
+}
+#header p a:hover {
+  border-width: 1px;
+}
+#header {
+  color: #333333;
+  border-left: 1px;
+  border-right: 2px;
+}
+#footer {
+  color: #111144 0;
+  border-color: #7d2717;
+}
+#head {
+  color: #6c94be;
+}
+.bordered {
+  border-top: dotted 1px black;
+  border-buttom: solid 2px black;
+}
+#menu a {
+  color: #111
+  .bordered;
+}
+.post a {
+  color: red;
+  border-top: dotted 1px black;
+  border-buttom: solid 2px black;
+}
+.post a.float {
+  float: left;
+}
+.post a .top {
+  margin: 5px;
+}
+.button {
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+pre {
+  text-wrap: wrap;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  word-wrap: break-word;
+}
+.class {
+  color: #a2a2a2;
+  display: block;
+}
+.class1 {
+  background-color: black;
+  color: #dddddd;
+}
+.class2 {
+  background-color: white;
+  color: #555555;
+}
+/*
+iscolor
+isnumber
+isstring
+iskeyword
+isurl
+*/
+#header {
+  color: black;
+}
+#header .navigation {
+  font-size: 12px;
+}
+#header .logo {
+  width: 300px;
+}
+#header .logo:hover {
+  text-decoration: none;
+}
+.bordered.float {
+  float: left;
+}
+.bordered .top {
+  margin: 5px;
+}
+.class {
+  color: #f6430f;
+  background-color: #f8b38d;
+}
+#bundle .tab {
+  color: #ff0000;
+}
+#bundle .citation {
+  color: #ffff00;
+}
+#header a {
+  color: orange;
+  display: block;
+  border: 1px solid black;
+  background-color: grey;
+}
+#header a:hover {
+  background-color: #ffffff;
+}
+#page #header {
+  color: #ffffff;
+}
+#footer {
+  color: #ff0000;
+}
+/* Hello, I'm a CSS-style comment */
+.class {
+  color: #000000;
+}
+.my {
+  background-image: url("http://assets.fnord.com/images/bg.png");
+}
+.class {
+  filter: ms:alwaysHasItsOwnSyntax.For.Stuff();
+  name: "hello";
+}

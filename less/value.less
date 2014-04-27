@@ -1,0 +1,249 @@
+@color: #4D926F;
+
+#header {
+  color: @color;
+}
+h2 {
+  color: @color;
+}
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+#header {
+  .rounded-corners;
+}
+#footer {
+  .rounded-corners(10px);
+}
+
+// 嵌套
+#header {
+  h1 {
+    font-size: 26px;
+    font-weight: bold;
+  }
+  p { font-size: 12px;
+    a { text-decoration: none;
+      &:hover { border-width: 1px }
+    }
+  }
+}
+
+
+// calculate
+
+@the-border: 1px;
+@base-color: #111;
+@red: #842210;
+
+#header {
+	color: @base-color * 3;
+	border-left:  @the-border;
+	border-right:  @the-border * 2;
+}
+
+#footer {
+	color:  @base-color+#00300;
+	border-color:  desaturate(@red, 10%);
+}
+
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+
+#head { color: @light-blue; }
+
+@fnord: "I am fnord.";
+@var: 'fnord';
+
+.bordered {
+  border-top: dotted 1px black;
+  border-buttom: solid 2px black;
+}
+
+#menu a{
+  color: #111
+  .bordered;
+}
+
+.post a{
+  color: red;
+  .bordered;
+}
+
+// 带参数混合
+
+.bordered-radius(@radius){
+  border-radius:  @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+.button {
+  .bordered-radius(6px);  
+}
+.border-radius (@radius: 5px) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+
+.wrap () {
+  text-wrap: wrap;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  word-wrap: break-word;
+}
+
+pre { .wrap }
+
+
+.box-shadow (@x: 0, @y: 0, @blur: 1px, @color: #000) {
+  box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  -webkit-box-shadow: @arguments;
+}
+
+.mixin (dark, @color) {
+  color: darken(@color, 10%);
+}
+.mixin (light, @color) {
+  color: lighten(@color, 10%);
+}
+.mixin (@_, @color) {
+  display: block;
+}
+
+@switch: light;
+.class {
+  .mixin(@switch, #888);
+}
+
+.mixin (@a) when (lightness(@a) >= 50%) {
+  background-color: black;
+}
+.mixin (@a) when (lightness(@a) < 50%) {
+  background-color: white;
+}
+.mixin (@a) {
+  color: @a;
+}
+
+.class1 { .mixin(#ddd) }
+.class2 { .mixin(#555) }
+
+/*
+iscolor
+isnumber
+isstring
+iskeyword
+isurl
+*/
+#header {
+  color: black;
+
+  .navigation {
+    font-size: 12px;
+  }
+  .logo {
+    width: 300px;
+    &:hover { text-decoration: none }
+  }
+}
+
+
+.bordered {
+  &.float {
+    float: left; 
+  }
+  .top {
+    margin: 5px; 
+  }
+}
+
+@base: 5%;
+@filler: @base*2;
+@other: @base + @filler;
+
+// color functions
+// lighten(@color, 10%);     // return a color which is 10% *lighter* than @color
+// darken(@color, 10%);      // return a color which is 10% *darker* than @color
+
+// saturate(@color, 10%);    // return a color 10% *more* saturated than @color
+// desaturate(@color, 10%);  // return a color 10% *less* saturated than @color
+
+// fadein(@color, 10%);      // return a color 10% *less* transparent than @color
+// fadeout(@color, 10%);     // return a color 10% *more* transparent than @color
+// fade(@color, 50%);        // return @color with 50% transparency
+
+// spin(@color, 10);         // return a color with a 10 degree larger in hue than @color
+// spin(@color, -10);        // return a color with a 10 degree smaller hue than @color
+
+// mix(@color1, @color2);    // return a mix of @color1 and @color2
+
+@base: #f04615;
+
+.class {
+  color: saturate(@base, 5%);
+  background-color: lighten(spin(@base, 8), 25%);
+}
+
+@new: hsl(hue(@base), 45%, 90%);
+
+@round: round(1.67); 
+@ceil: ceil(2.4);  
+@floor: floor(2.6);
+@percent:percentage(0.5); 
+
+// namespace
+
+#bundle {
+  .button () {
+    display: block;
+    border: 1px solid black;
+    background-color: grey;
+    &:hover { background-color: white }
+  }
+  .tab { color:red }
+  .citation { color:yellow }
+}
+#header a {
+  color: orange;
+  #bundle > .button;
+}
+
+
+@var: red;
+
+#page {
+  @var: white;
+  #header {
+    color: @var; // white
+  }
+}
+
+#footer {
+  color: @var; // red  
+}
+
+/* Hello, I'm a CSS-style comment */
+.class { color: black }
+
+// string
+
+@base-url: "http://assets.fnord.com";
+
+.my{
+background-image: url("@{base-url}/images/bg.png");
+}
+
+@str: "hello";
+
+.class {
+  filter: ~"ms:alwaysHasItsOwnSyntax.For.Stuff()";
+  name: @str;
+}
+
+
+
